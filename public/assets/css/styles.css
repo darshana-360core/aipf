@@ -1,0 +1,1020 @@
+body {
+  font-family: "Quicksand", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 0px;
+  height: 0px;
+  border-radius: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background-color: transparent;
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background-color: transparent;
+  border-radius: 10px;
+}
+
+/* Edge & IE */
+body {
+  -ms-overflow-style: none;
+}
+
+.sidemenu li a {
+  color: #9ca3af;
+}
+
+.sidemenu li a.activemenu,
+.sidemenu li a.activesub,
+.sidemenu li a:hover {
+  color: #ffffff;
+}
+
+.sidemenu li:nth-child(1) a:hover svg,
+.sidemenu li:nth-child(1) a.activemenu svg {
+  background-color: #ff7551;
+}
+
+.sidemenu li:nth-child(1) a:hover .arrow svg,
+.sidemenu li:nth-child(1) a.activemenu .arrow svg {
+  background-color: transparent;
+}
+
+.sidemenu .submenu li:nth-child(1) a:hover svg,
+.sidemenu .submenu li:nth-child(1) a.activesub svg {
+  background-color: #ff7551;
+}
+
+.sidemenu .submenu li:nth-child(1) a:hover .arrow svg,
+.sidemenu .submenu li:nth-child(1) a.activesub .arrow svg {
+  background-color: transparent;
+}
+
+.sidemenu .submenu li:nth-child(1) a svg {
+  border-radius: 50px;
+}
+
+.sidemenu li:nth-child(2) a:hover svg,
+.sidemenu li:nth-child(2) a.activemenu svg {
+  background-color: #32a7e2;
+}
+
+.sidemenu li:nth-child(2) a:hover .arrow svg,
+.sidemenu li:nth-child(2) a.activemenu .arrow svg {
+  background-color: transparent;
+}
+
+.sidemenu .submenu li:nth-child(2) a:hover svg,
+.sidemenu .submenu li:nth-child(2) a.activesub svg {
+  background-color: #32a7e2;
+}
+
+.sidemenu .submenu li:nth-child(2) a:hover .arrow svg,
+.sidemenu .submenu li:nth-child(2) a.activesub .arrow svg {
+  background-color: transparent;
+}
+
+.sidemenu .submenu li:nth-child(2) a svg {
+  border-radius: 50px;
+}
+
+.sidemenu li:nth-child(3) a:hover svg,
+.sidemenu li:nth-child(3) a.activemenu svg {
+  background-color: #6c5ecf;
+}
+
+.sidemenu li:nth-child(3) a:hover .arrow svg,
+.sidemenu li:nth-child(3) a.activemenu .arrow svg {
+  background-color: transparent;
+}
+
+.sidemenu .submenu li:nth-child(3) a:hover svg,
+.sidemenu .submenu li:nth-child(3) a.activesub svg {
+  background-color: #6c5ecf;
+}
+
+.sidemenu .submenu li:nth-child(3) a:hover .arrow svg,
+.sidemenu .submenu li:nth-child(3) a.activesub .arrow svg {
+  background-color: transparent;
+}
+
+.sidemenu .submenu li:nth-child(3) a svg {
+  border-radius: 50px;
+}
+
+.sidemenu li:nth-child(4) a:hover svg,
+.sidemenu li:nth-child(4) a.activemenu svg {
+  background-color: #749318;
+}
+
+.sidemenu li:nth-child(4) a:hover .arrow svg,
+.sidemenu li:nth-child(4) a.activemenu .arrow svg {
+  background-color: transparent;
+}
+
+.sidemenu .submenu li:nth-child(4) a:hover svg,
+.sidemenu .submenu li:nth-child(4) a.activesub svg {
+  background-color: #749318;
+}
+
+.sidemenu .submenu li:nth-child(4) a:hover .arrow svg,
+.sidemenu .submenu li:nth-child(4) a.activesub .arrow svg {
+  background-color: transparent;
+}
+
+.sidemenu .submenu li:nth-child(4) a svg {
+  border-radius: 50px;
+}
+
+.sidemenu li:nth-child(5) a:hover svg,
+.sidemenu li:nth-child(5) a.activemenu svg {
+  background-color: #93185b;
+}
+
+.sidemenu li:nth-child(5) a:hover .arrow svg,
+.sidemenu li:nth-child(5) a.activemenu .arrow svg {
+  background-color: transparent;
+}
+
+.sidemenu .submenu li:nth-child(5) a:hover svg,
+.sidemenu .submenu li:nth-child(5) a.activesub svg {
+  background-color: #93185b;
+}
+
+.sidemenu .submenu li:nth-child(5) a:hover .arrow svg,
+.sidemenu .submenu li:nth-child(5) a.activesub .arrow svg {
+  background-color: transparent;
+}
+
+.sidemenu .submenu li:nth-child(5) a svg {
+  border-radius: 50px;
+}
+
+.sidemenu li:nth-child(6) a:hover svg,
+.sidemenu li:nth-child(6) a.activemenu svg {
+  background-color: #ff7551;
+}
+
+.sidemenu li:nth-child(6) a:hover .arrow svg,
+.sidemenu li:nth-child(6) a.activemenu .arrow svg {
+  background-color: transparent;
+}
+
+.sidemenu .submenu li:nth-child(6) a:hover svg,
+.sidemenu .submenu li:nth-child(6) a.activesub svg {
+  background-color: #ff7551;
+}
+
+.sidemenu .submenu li:nth-child(6) a:hover .arrow svg,
+.sidemenu .submenu li:nth-child(6) a.activesub .arrow svg {
+  background-color: transparent;
+}
+
+.sidemenu .submenu li:nth-child(6) a svg {
+  border-radius: 50px;
+}
+
+.sidemenu li:nth-child(7) a:hover svg,
+.sidemenu li:nth-child(7) a.activemenu svg {
+  background-color: #32a7e2;
+}
+
+.sidemenu li:nth-child(7) a:hover .arrow svg,
+.sidemenu li:nth-child(7) a.activemenu .arrow svg {
+  background-color: transparent;
+}
+
+.sidemenu .submenu li:nth-child(7) a:hover svg,
+.sidemenu .submenu li:nth-child(7) a.activesub svg {
+  background-color: #32a7e2;
+}
+
+.sidemenu .submenu li:nth-child(7) a:hover .arrow svg,
+.sidemenu .submenu li:nth-child(7) a.activesub .arrow svg {
+  background-color: transparent;
+}
+
+.sidemenu .submenu li:nth-child(7) a svg {
+  border-radius: 50px;
+}
+
+.sidemenu li:nth-child(8) a:hover svg,
+.sidemenu li:nth-child(8) a.activemenu svg {
+  background-color: #6c5ecf;
+}
+
+.sidemenu li:nth-child(8) a:hover .arrow svg,
+.sidemenu li:nth-child(8) a.activemenu .arrow svg {
+  background-color: transparent;
+}
+
+.sidemenu .submenu li:nth-child(8) a:hover svg,
+.sidemenu .submenu li:nth-child(8) a.activesub svg {
+  background-color: #6c5ecf;
+}
+
+.sidemenu .submenu li:nth-child(8) a:hover .arrow svg,
+.sidemenu .submenu li:nth-child(8) a.activesub .arrow svg {
+  background-color: transparent;
+}
+
+.sidemenu .submenu li:nth-child(8) a svg {
+  border-radius: 50px;
+}
+
+.sidemenu li:nth-child(9) a:hover svg,
+.sidemenu li:nth-child(9) a.activemenu svg {
+  background-color: #749318;
+}
+
+.sidemenu li:nth-child(9) a:hover .arrow svg,
+.sidemenu li:nth-child(9) a.activemenu .arrow svg {
+  background-color: transparent;
+}
+
+.sidemenu .submenu li:nth-child(9) a:hover svg,
+.sidemenu .submenu li:nth-child(9) a.activesub svg {
+  background-color: #749318;
+}
+
+.sidemenu .submenu li:nth-child(9) a:hover .arrow svg,
+.sidemenu .submenu li:nth-child(9) a.activesub .arrow svg {
+  background-color: transparent;
+}
+
+.sidemenu .submenu li:nth-child(9) a svg {
+  border-radius: 50px;
+}
+
+.sidemenu li:nth-child(10) a:hover svg,
+.sidemenu li:nth-child(10) a.activemenu svg {
+  background-color: #93185b;
+}
+
+.sidemenu li:nth-child(10) a:hover .arrow svg,
+.sidemenu li:nth-child(10) a.activemenu .arrow svg {
+  background-color: transparent;
+}
+
+.sidemenu .submenu li:nth-child(10) a:hover svg,
+.sidemenu .submenu li:nth-child(10) a.activesub svg {
+  background-color: #93185b;
+}
+
+.sidemenu .submenu li:nth-child(10) a:hover .arrow svg,
+.sidemenu .submenu li:nth-child(10) a.activesub .arrow svg {
+  background-color: transparent;
+}
+
+.sidemenu .submenu li:nth-child(10) a svg {
+  border-radius: 50px;
+}
+
+.selectbox option {
+  color: #000000;
+}
+
+.rankingsliderbox .swiper-slide:nth-child(1) {
+  background-color: #894332;
+}
+
+.rankingsliderbox .swiper-slide:nth-child(1)::before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background-image: url(../images/rankinfobg.webp);
+  z-index: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: repeat;
+  opacity: 0.05;
+  pointer-events: none;
+}
+
+.rankingsliderbox .swiper-slide:nth-child(2) {
+  background-color: #225d7a;
+}
+
+.rankingsliderbox .swiper-slide:nth-child(2)::before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background-image: url(../images/rankinfobg.webp);
+  z-index: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: repeat;
+  opacity: 0.05;
+  pointer-events: none;
+}
+
+.rankingsliderbox .swiper-slide:nth-child(3) {
+  background-color: #3f3871;
+}
+
+.rankingsliderbox .swiper-slide:nth-child(3)::before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background-image: url(../images/rankinfobg.webp);
+  z-index: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: repeat;
+  opacity: 0.05;
+  pointer-events: none;
+}
+
+.rankingsliderbox .swiper-slide:nth-child(4) {
+  background-color: #435315;
+}
+
+.rankingsliderbox .swiper-slide:nth-child(4)::before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background-image: url(../images/rankinfobg.webp);
+  z-index: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: repeat;
+  opacity: 0.05;
+  pointer-events: none;
+}
+
+.rankingsliderbox .swiper-slide:nth-child(5) {
+  background-color: #531537;
+}
+
+.rankingsliderbox .swiper-slide:nth-child(5)::before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background-image: url(../images/rankinfobg.webp);
+  z-index: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: repeat;
+  opacity: 0.05;
+  pointer-events: none;
+}
+
+.rankingsliderbox .swiper-slide:nth-child(6) {
+  background-color: #328689;
+}
+
+.rankingsliderbox .swiper-slide:nth-child(6)::before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background-image: url(../images/rankinfobg.webp);
+  z-index: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: repeat;
+  opacity: 0.05;
+  pointer-events: none;
+}
+
+.rankingsliderbox .swiper-slide:nth-child(7) {
+  background-color: #894332;
+}
+
+.rankingsliderbox .swiper-slide:nth-child(7)::before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background-image: url(../images/rankinfobg.webp);
+  z-index: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: repeat;
+  opacity: 0.05;
+  pointer-events: none;
+}
+
+.rankingsliderbox .swiper-slide:nth-child(8) {
+  background-color: #225d7a;
+}
+
+.rankingsliderbox .swiper-slide:nth-child(8)::before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background-image: url(../images/rankinfobg.webp);
+  z-index: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: repeat;
+  opacity: 0.05;
+  pointer-events: none;
+}
+
+.rankingsliderbox .swiper-slide:nth-child(9) {
+  background-color: #3f3871;
+}
+
+.rankingsliderbox .swiper-slide:nth-child(9)::before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background-image: url(../images/rankinfobg.webp);
+  z-index: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: repeat;
+  opacity: 0.05;
+  pointer-events: none;
+}
+
+.rankingsliderbox .swiper-slide:nth-child(10) {
+  background-color: #435315;
+}
+
+.rankingsliderbox .swiper-slide:nth-child(10)::before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background-image: url(../images/rankinfobg.webp);
+  z-index: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: repeat;
+  opacity: 0.05;
+  pointer-events: none;
+}
+
+.rankingsliderbox .swiper-slide:nth-child(11) {
+  background-color: #531537;
+}
+
+.rankingsliderbox .swiper-slide:nth-child(11)::before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background-image: url(../images/rankinfobg.webp);
+  z-index: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: repeat;
+  opacity: 0.05;
+  pointer-events: none;
+}
+
+.rankingsliderbox .swiper-slide:nth-child(12) {
+  background-color: #328689;
+}
+
+.rankingsliderbox .swiper-slide:nth-child(12)::before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background-image: url(../images/rankinfobg.webp);
+  z-index: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: repeat;
+  opacity: 0.05;
+  pointer-events: none;
+}
+
+.rankingsliderbox .swiper-slide:nth-child(13) {
+  background-color: #894332;
+}
+
+.rankingsliderbox .swiper-slide:nth-child(13)::before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background-image: url(../images/rankinfobg.webp);
+  z-index: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: repeat;
+  opacity: 0.05;
+  pointer-events: none;
+}
+
+.rankingsliderbox .swiper-slide:nth-child(14) {
+  background-color: #225d7a;
+}
+
+.rankingsliderbox .swiper-slide:nth-child(14)::before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background-image: url(../images/rankinfobg.webp);
+  z-index: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: repeat;
+  opacity: 0.05;
+  pointer-events: none;
+}
+
+.rankingsliderbox .swiper-slide:nth-child(15) {
+  background-color: #3f3871;
+}
+
+.rankingsliderbox .swiper-slide:nth-child(15)::before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background-image: url(../images/rankinfobg.webp);
+  z-index: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: repeat;
+  opacity: 0.05;
+  pointer-events: none;
+}
+
+.rankingsliderbox .swiper-slide:nth-child(16) {
+  background-color: #435315;
+}
+
+.rankingsliderbox .swiper-slide:nth-child(16)::before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background-image: url(../images/rankinfobg.webp);
+  z-index: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: repeat;
+  opacity: 0.05;
+  pointer-events: none;
+}
+
+.rankingsliderbox .swiper-slide:nth-child(17) {
+  background-color: #531537;
+}
+
+.rankingsliderbox .swiper-slide:nth-child(17)::before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background-image: url(../images/rankinfobg.webp);
+  z-index: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: repeat;
+  opacity: 0.05;
+  pointer-events: none;
+}
+
+.rankingsliderbox .swiper-slide:nth-child(18) {
+  background-color: #328689;
+}
+
+.rankingsliderbox .swiper-slide:nth-child(18)::before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background-image: url(../images/rankinfobg.webp);
+  z-index: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: repeat;
+  opacity: 0.05;
+  pointer-events: none;
+}
+
+.rankingsliderbox .swiper-slide:nth-child(19) {
+  background-color: #894332;
+}
+
+.rankingsliderbox .swiper-slide:nth-child(19)::before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background-image: url(../images/rankinfobg.webp);
+  z-index: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: repeat;
+  opacity: 0.05;
+  pointer-events: none;
+}
+
+.rankingsliderbox .swiper-slide:nth-child(20) {
+  background-color: #225d7a;
+}
+
+.rankingsliderbox .swiper-slide:nth-child(20)::before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background-image: url(../images/rankinfobg.webp);
+  z-index: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: repeat;
+  opacity: 0.05;
+  pointer-events: none;
+}
+
+.rankingsliderbox .swiper-slide:nth-child(21) {
+  background-color: #3f3871;
+}
+
+.rankingsliderbox .swiper-slide:nth-child(21)::before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background-image: url(../images/rankinfobg.webp);
+  z-index: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: repeat;
+  opacity: 0.05;
+  pointer-events: none;
+}
+
+.rankingsliderbox .swiper-slide:nth-child(22) {
+  background-color: #435315;
+}
+
+.rankingsliderbox .swiper-slide:nth-child(22)::before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background-image: url(../images/rankinfobg.webp);
+  z-index: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: repeat;
+  opacity: 0.05;
+  pointer-events: none;
+}
+
+.rankingsliderbox .swiper-slide:nth-child(23) {
+  background-color: #531537;
+}
+
+.rankingsliderbox .swiper-slide:nth-child(23)::before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background-image: url(../images/rankinfobg.webp);
+  z-index: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: repeat;
+  opacity: 0.05;
+  pointer-events: none;
+}
+
+.rankingsliderbox .swiper-slide:nth-child(24) {
+  background-color: #328689;
+}
+
+.rankingsliderbox .swiper-slide:nth-child(24)::before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background-image: url(../images/rankinfobg.webp);
+  z-index: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: repeat;
+  opacity: 0.05;
+  pointer-events: none;
+}
+
+.rankingboxbg::before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background-image: url(../images/rankingboxbg.svg);
+  z-index: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: repeat;
+  opacity: 0.2;
+  pointer-events: none;
+  -webkit-transform: scaleX(-1);
+  -ms-transform: scaleX(-1);
+  transform: scaleX(-1);
+  z-index: 0;
+}
+
+.rankingboxbg .gridbox::after {
+  content: attr(data-rank);
+  position: absolute;
+  color: #30b8f5;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  font-size: 14px;
+  padding: 10px 0;
+  white-space: nowrap;
+
+  /* ✅ Cross-browser writing mode fix */
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+
+  /* ✅ Ensure visibility */
+  z-index: -1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  pointer-events: none;
+  letter-spacing: 2px;
+  font-weight: 600;
+
+  /* ✅ Fix height issues */
+  height: 100%;
+  min-height: 120px;
+}
+
+.rankinginfo {
+  background-image: -webkit-gradient(linear, left bottom, right top, from(#ff9794), color-stop(#fd8dac), color-stop(#e58cc6), color-stop(#bf7cdc), to(#6f78f4));
+  background-image: -o-linear-gradient(left bottom, #ff9794, #fd8dac, #e58cc6, #bf7cdc, #6f78f4);
+  background-image: linear-gradient(to right top, #ff9794, #fd8dac, #e58cc6, #bf7cdc, #6f78f4);
+}
+
+.rankinginfo::before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background-image: url(../images/rankinfobg.webp);
+  z-index: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: repeat;
+  opacity: 0.1;
+  pointer-events: none;
+}
+
+.rankinginfo2 {
+  background-image: -webkit-gradient(linear, left bottom, right top, from(#9458ac), color-stop(#8f5dbe), color-stop(#4d977e), color-stop(#5d74b6), to(#6f71f4));
+  background-image: -o-linear-gradient(left bottom, #9458ac, #8f5dbe, #4d977e, #5d74b6, #6f71f4);
+  background-image: linear-gradient(to right top, #9458ac, #8f5dbe, #4d977e, #5d74b6, #6f71f4);
+}
+
+.rankinginfo2::before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background-image: url(../images/rankinfobg.webp);
+  z-index: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: repeat;
+  opacity: 0.1;
+  pointer-events: none;
+  -webkit-transform: scale(-1);
+  -ms-transform: scale(-1);
+  transform: scale(-1);
+}
+
+.rankinginfo3 {
+  background-image: -webkit-gradient(linear, left bottom, right top, from(#d85853), color-stop(#bb4869), color-stop(#ca50a0), color-stop(#9148b1), to(#535bd6));
+  background-image: -o-linear-gradient(left bottom, #d85853, #bb4869, #ca50a0, #9148b1, #535bd6);
+  background-image: linear-gradient(to right top, #d85853, #bb4869, #ca50a0, #9148b1, #535bd6);
+}
+
+.rankinginfo3::before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background-image: url(../images/rankinfobg.webp);
+  z-index: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: repeat;
+  opacity: 0.1;
+  pointer-events: none;
+}
+
+.rankinginfo4::before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background-image: url(../images/rankinfobg.webp);
+  z-index: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: repeat;
+  opacity: 0.1;
+  pointer-events: none;
+}
+
+.boxbgsvg {
+  background-color: #19191c;
+}
+
+.boxbgsvg::before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background-image: url(../images/rankingboxbg.svg);
+  z-index: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: repeat;
+  opacity: 0.25;
+  pointer-events: none;
+  -webkit-transform: scale(-1);
+  -ms-transform: scale(-1);
+  transform: scale(-1);
+}
+
+.boxbgsvg1::before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background-image: url(../images/rankingboxbg.svg);
+  z-index: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: repeat;
+  opacity: 0.25;
+  pointer-events: none;
+  -webkit-transform: scale(-1);
+  -ms-transform: scale(-1);
+  transform: scale(-1);
+}
+
+.borderdashed::before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+@media only screen and (max-width: 1023px) {
+  #sidebar {
+    position: fixed;
+    top: 0px;
+    left: -280px;
+    max-width: 280px;
+    width: 100%;
+    z-index: 60;
+    height: 100% !important;
+    display: block;
+    -webkit-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+  }
+
+  #sidebar.sidemenutoggle {
+    left: 0px;
+  }
+
+  #sidebar.sidemenutoggle>.hidesidebar {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    z-index: -1;
+    height: 100% !important;
+    display: block;
+    -webkit-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+}
+
+.incomeOverview_tab li button {
+  border-bottom: 2px solid transparent !important;
+}
+
+.incomeOverview_tab li button.text-blue-600 {
+  border-color: #c29023 !important;
+  color: #ffcd60;
+  font-weight: 600;
+}
+
+.notyf__toast--upper {
+  margin-bottom: 4px !important;
+}
+
+.qrcodebpx {
+  margin-bottom: 30px;
+}
+
+.qrcodebpx svg {
+  margin: 0 auto;
+  padding: 10px;
+  max-width: 240px;
+  border: 2px solid #4d4d4d;
+  border-radius: 12px;
+}
+
+.loginregsec~footer {
+  display: none;
+}
+
+.valuesDolur+h4 {
+  font-size: 14px;
+  font-weight: 400;
+}
