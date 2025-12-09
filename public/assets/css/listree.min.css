@@ -1,0 +1,360 @@
+/*! CSS for glimtree */
+.bstree,
+.bstree ul {
+  list-style: none;
+  position: relative;
+}
+
+.bstree-vline {
+  position: absolute;
+  border-left: 1px solid;
+  bottom: 0;
+  content: "";
+  display: block;
+  left: 8px;
+  top: 0;
+  width: 0;
+  height: calc(100% - 20px);
+}
+
+.bstree-data .bstree-vline {
+  height: calc(100% - 12px);
+}
+
+.bstree-children li::before {
+  position: absolute;
+  height: 0;
+  left: 8px;
+  width: 22px;
+  content: "";
+  display: block;
+  margin-top: 12px;
+  border-top: 1px solid;
+}
+
+.bstree-incomplete>.checkbox label {
+  text-decoration: underline;
+}
+
+.bstree-chevron {
+  cursor: pointer;
+}
+
+.bstree input[type=checkbox] {
+  margin-top: 0.3rem;
+}
+
+.custom-checkbox .custom-control-indicator {
+  margin-top: 2px;
+}
+
+.bstree-data .fa {
+  vertical-align: 0;
+}
+
+.bstree-data .bstree-inner-container {
+  margin-bottom: 6px;
+}
+
+.tree_holder {
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 30px;
+  color: #ffffff;
+}
+
+.bstree {
+  min-width: 900px;
+}
+
+.bstree,
+.bstree ul {
+  list-style: none;
+  position: relative;
+}
+
+.bstree-vline {
+  position: absolute;
+  border-left: 1px dashed #000000;
+  bottom: 0;
+  content: "";
+  display: block;
+  left: 16px;
+  top: -25px;
+  height: calc(100% + 8px);
+}
+
+.bstree-children li::before {
+  position: absolute;
+  height: 0;
+  left: 18px;
+  width: 25px;
+  content: "";
+  display: block;
+  margin-top: 12px;
+  border-top: 1px dashed #000000;
+}
+
+.bstree-children li {
+  margin-left: 40px;
+}
+
+.bstree-incomplete>.checkbox label {
+  text-decoration: underline;
+}
+
+.bstree-chevron {
+  cursor: pointer;
+}
+
+.bstree input[type="checkbox"] {
+  margin-top: 0.3rem;
+}
+
+.custom-checkbox .custom-control-indicator {
+  margin-top: 2px;
+}
+
+.bstree-data .fa {
+  vertical-align: 0;
+}
+
+.bstree-data .bstree-inner-container {
+  margin-bottom: 6px;
+}
+
+.bstree-inner-container {
+  display: flex;
+  align-items: center;
+}
+
+.bstree-chevron {
+  position: absolute;
+  width: 100px;
+  padding-left: 5px;
+}
+
+.bstree-label-container {
+  margin-left: 23px;
+}
+
+
+
+.tree_name_main {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1;
+  padding-right: 20px;
+  /* white-space: nowrap; */
+}
+
+.tree_name_main img {
+  width: 45px;
+  height: 45px;
+  border-radius: 0%;
+  margin-right: 10px;
+  display: inline-block;
+}
+
+.tree_head {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: auto 110px 100px 90px 100px 100px 100px 100px 100px;
+  grid-template-columns: auto 110px 100px 90px 100px 100px 100px 100px 100px;
+  text-align: left;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 24px;
+  border-bottom: 1px solid #000000;
+  padding-bottom: 4px;
+}
+
+.tree_head div {
+  width: 100%;
+  /* padding-left: 20px; */
+  line-height: 1;
+}
+
+.tree_head .tree_usd {
+  padding-left: 0px;
+  justify-content: flex-end;
+  text-align: right;
+}
+
+.tree_name {
+  /* padding-left: 50px; */
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.2;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  cursor: pointer;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+}
+
+.tree_head .tree_rang {
+  justify-content: flex-start;
+  padding-left: 0px;
+}
+
+.tree_head .tree_packages {
+  text-align: left;
+  justify-content: flex-start;
+  padding-left: 20px;
+  padding-right: 15px;
+}
+
+.tree_head .tree_rank {
+  padding-left: 0px;
+}
+
+.tree_name img {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  margin-right: 10px;
+  /* border: 1px solid #898e8c; */
+}
+
+.tree_name:hover>.more_about_part {
+  opacity: 1;
+}
+
+.more_about_part a:hover {
+  opacity: 0.7;
+}
+
+.tree_part {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding-left: 20px;
+  padding-right: 15px;
+  line-height: 1.1;
+}
+
+.maintreebox {
+  min-width: max-content;
+}
+
+.tree_rang {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.tree_usd {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+}
+
+.tree_part_line {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: auto 110px 100px 90px 100px 100px 100px 100px 100px;
+  grid-template-columns: auto 110px 100px 90px 100px 100px 100px 100px 100px;
+  text-align: left;
+  margin-top: -33px;
+}
+
+.bstree-expanded,
+.bstree-closed,
+.bstree-node {
+  padding: 25px 0px 10px 0;
+  font-size: 13px;
+}
+
+.tree_part_main_li .tree_plus_minus {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  border: 1px solid #000000;
+  box-sizing: border-box;
+  border-radius: 30px;
+  position: relative;
+  z-index: 1;
+  line-height: 1;
+  align-items: center;
+  font-size: 21px;
+  font-weight: 600;
+  margin-top: -6px;
+  background-color: #000000;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+.tree_part_li .tree_plus_minus {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  justify-content: center;
+  border: 1px solid #000000;
+  box-sizing: border-box;
+  border-radius: 4px;
+  color: #000000;
+  background: #2cb4ff;
+  position: relative;
+  z-index: 1;
+  font-weight: 700;
+  line-height: 1.3;
+  align-items: center;
+}
+
+.tree_part_line_main {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: auto 110px 100px 90px 100px 100px 100px 100px 100px;
+  grid-template-columns: auto 110px 100px 90px 100px 100px 100px 100px 100px;
+  margin-top: -35px;
+  padding-left: 45px;
+}
+
+.tree_part_main_li {
+  margin-top: 20px;
+  border-bottom: 1px solid #53535324;
+  /* padding-bottom: 4px; */
+}
+
+.tree_part_main_li .bstree-chevron {
+  width: 200px;
+}
+
+.tree_part_li .bstree-chevron {
+  width: 100px;
+}
+
+.no-data {
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  font-size: 20px;
+  font-weight: 500;
+
+}

@@ -12,7 +12,8 @@
 Homestead.json
 Homestead.yaml
 auth.json
-npm-debug.log
+npm-debug.log 
+vendor.zip
 yarn-error.log
 /.fleet
 /.idea

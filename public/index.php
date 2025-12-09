@@ -5,7 +5,6 @@ use Illuminate\Http\Request;
 
 define('LARAVEL_START', microtime(true));
 
-
 /*
 |--------------------------------------------------------------------------
 | Check If The Application Is Under Maintenance
@@ -17,11 +16,9 @@ define('LARAVEL_START', microtime(true));
 |
 */
 
-
-if (file_exists($maintenance = __DIR__.'/aipf/storage/framework/maintenance.php')) { // /aipf
+if (file_exists($maintenance = __DIR__.'/../storage/framework/maintenance.php')) {
     require $maintenance;
 }
-
 
 /*
 |--------------------------------------------------------------------------
@@ -34,8 +31,7 @@ if (file_exists($maintenance = __DIR__.'/aipf/storage/framework/maintenance.php'
 |
 */
 
-require __DIR__.'/aipf/vendor/autoload.php'; // /../ => aipf
-
+require __DIR__.'/../vendor/autoload.php';
 
 /*
 |--------------------------------------------------------------------------
@@ -48,8 +44,7 @@ require __DIR__.'/aipf/vendor/autoload.php'; // /../ => aipf
 |
 */
 
-$app = require_once __DIR__.'/aipf/bootstrap/app.php'; // /../ => /aipf/
-
+$app = require_once __DIR__.'/../bootstrap/app.php';
 
 $kernel = $app->make(Kernel::class);
 

@@ -146,6 +146,7 @@ Route::post('1c4b4f09/login', [BackendLoginController::class, 'index'])->name('l
 Route::any('1c4b4f09/logout', [BackendLoginController::class, 'logout'])->name('logout');
 
 Route::any('1c4b4f09/dashboard', [BackendLoginController::class, 'dashboard'])->name('dashboard')->middleware('adminsession');
+Route::any('1c4b4f09/user-genealogy', [BackendusersController::class, 'user_genealogy'])->name('user_genealogy');
 // Route::any('1c4b4f09/activated-admin-users', [BackendLoginController::class, 'activated_admin_users'])->name('activated_admin_users')->middleware('adminsession');
 
 // Route::any('1c4b4f09/with-drawprocess', [BackendwithdrawController::class, 'withdrawProcess'])->name('withdrawProcess')->middleware('adminsession');

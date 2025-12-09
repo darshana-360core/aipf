@@ -22,7 +22,7 @@ use Maatwebsite\Excel\Facades\Excel;
 use Carbon\Carbon;
 
 use function App\Helpers\findUplineRank;
-
+use function App\Helpers\getLevelTeam;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Collection;
 
@@ -2405,5 +2405,42 @@ class usersController extends Controller
         $res['stype'] = $stype;
 
         return is_mobile($type, "release_report", $res, 'view');
+    }
+    
+    public function user_genealogy(Request $request){
+        $type = $request->input('type');
+
+        if(!$request->input('wallet_address')){
+            $res['status_code'] = 1;
+            $res['message'] = "Fetched Successfully.";
+            $res['data'] = [];
+            return is_mobile($type, "genealogy", $res, "view");
+        }
+        $user = usersModel::where('wallet_address',$request->input('wallet_address'))->first();
+         if(!$user){
+            $res['status_code'] = 1;
+            $res['message'] = "No User Found.";
+            $res['data'] = [];
+            return is_mobile($type, "genealogy", $res, "view");
+        }
+        
+        $user_id = $user['id'];
+        
+
+        $data = getLevelTeam($user_id);
+
+        foreach ($data as $key => $value) {
+            $dataL2 = getLevelTeam($value['id']);
+
+            if (count($dataL2) > 0) {
+                $data[$key][$value['refferal_code']] = $dataL2;
+            }
+        }
+
+        $res['status_code'] = 1;
+        $res['message'] = "Fetched Successfully.";
+        $res['data'] = $data;
+        $res['wallet_address'] = $user['wallet_address'];
+        return is_mobile($type, "genealogy", $res, "view");
     }
 }

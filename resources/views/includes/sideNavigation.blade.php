@@ -24,6 +24,7 @@
            {{-- <!-- <li> <a href="{{route('roi-distribution-import.index')}}" class="waves-effect"><i class="mdi mdi-av-timer fa-fw" data-icon="v"></i> <span class="hide-menu"> Roi Distribution </span></a></li> --> --}}
            {{-- <li> <a href="{{route('process_team_strong_business')}}" class="waves-effect"><i class="mdi mdi-av-timer fa-fw" data-icon="v"></i> <span class="hide-menu"> Strong Team Business </span></a></li> --}}
             <li> <a href="{{route('level_income_report')}}" class="waves-effect"><i class="mdi mdi-av-timer fa-fw" data-icon="v"></i> <span class="hide-menu">Income Report </span></a></li>
+            <li> <a href="{{route('user_genealogy')}}" class="waves-effect"><i class="mdi mdi-av-timer fa-fw" data-icon="v"></i> <span class="hide-menu">Genealogy </span></a></li>
             <li> <a href="{{route('withdrawReport')}}" class="waves-effect"><i class="mdi mdi-av-timer fa-fw" data-icon="v"></i> <span class="hide-menu">Withdraw Report </span></a></li>
             <li> <a href="{{route('turbineReport')}}" class="waves-effect"><i class="mdi mdi-av-timer fa-fw" data-icon="v"></i> <span class="hide-menu">Turbine Report </span></a></li>
             <!-- <li> <a href="{{route('orbitx_pool')}}" class="waves-effect"><i class="mdi mdi-av-timer fa-fw" data-icon="v"></i> <span class="hide-menu">Pool Report </span></a></li> -->
