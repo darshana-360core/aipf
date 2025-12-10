@@ -22,9 +22,9 @@ class aipfTeamBonusLevelRelease extends Command
         $logger->info('--- TeamBonus Level Check Started ---');
 
         try {
-            //$appHome = new scriptController;
-            //$appHome->starBonus($request);
-            $svc->distributeBonus();
+            $appHome = new scriptController;
+            $appHome->starBonus();
+            // $svc->distributeBonus();
             $logger->info('distributeBonus() executed successfully.');
 
             $this->info('TeamBonus distribution completed successfully.');

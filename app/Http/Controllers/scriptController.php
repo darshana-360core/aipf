@@ -486,7 +486,7 @@ class scriptController extends Controller
         }
     }
 
-    public function starBonus(Request $request)
+    public function starBonus()
     {
         // $rankPercentage = [];
         // foreach ($this->matrix as $level => $m) {
