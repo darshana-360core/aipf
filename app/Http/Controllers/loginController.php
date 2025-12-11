@@ -1127,7 +1127,7 @@ class loginController extends Controller
                                                 ->exists();
                 $res['isStaked']              = $isStaked;
 
-                $fetchDiscountJson = file_get_contents("http://91.243.178.152:5255/api/24h");
+                $fetchDiscountJson = file_get_contents("http://91.243.178.31:5255/api/24h");
 
                 $fetchDiscount = json_decode($fetchDiscountJson, true);
 
@@ -1382,7 +1382,7 @@ class loginController extends Controller
                 $res['rewardDate'] = $deadline;
             }
             $res['delhi-event']           = $exist ? 1 : 0;
-            $fetchDiscountJson = file_get_contents("http://91.243.178.152:5255/api/24h");
+            $fetchDiscountJson = file_get_contents("http://91.243.178.31:5255/api/24h");
 
             $fetchDiscount = json_decode($fetchDiscountJson, true);
 
