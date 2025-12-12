@@ -1,7 +1,7 @@
 <?php
 $host = '127.0.0.1';
-$user = 'dbadmin';
-$password = 'Rfw57ebsNkti$57RfwNktiebs';
+$user = 'root';
+$password = 'Qf2rYtVd0YuloxWP';
 $dbname = 'aipf';
 
 $conn = mysqli_connect($host, $user, $password, $dbname);
@@ -99,7 +99,7 @@ while($fetLeaders = mysqli_fetch_assoc($getLeaders))
         </div>
 
         <p class="text-lg text-green-200 max-w-2xl mx-auto">
-          Participate in the decentralized reward distribution system powered by AIPF.
+          Participate in the decentralized reward distribution system.
         </p>
       </div>
 
@@ -192,7 +192,9 @@ while($fetLeaders = mysqli_fetch_assoc($getLeaders))
                 <tr>
                   <td class="px-6 py-3 text-left"><?php echo ($key+1); ?></td>
                   <td class="px-6 py-3 text-left"><?php echo number_format($value['amount'], 2); ?></td>
-                  <td class="px-6 py-3 text-left"><?php echo $value['transaction_hash']; ?></td>
+                  <td class="px-6 py-3 text-left">
+                    <a target="_blank" href="https://polygonscan.com/tx/<?php echo $value['transaction_hash']; ?>"><?php echo $value['transaction_hash']; ?></a>
+                  </td>
                   <td class="px-6 py-3 text-left"><?php echo number_format($value['reward_amount'], 2) . " / " . $value['reward_date']; ?></td>
                   <td class="px-6 py-3 text-left"><?php echo date('d-m-Y', strtotime($value['created_on'])); ?></td>
                 </tr>
