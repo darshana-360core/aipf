@@ -605,52 +605,46 @@ class scriptController extends Controller
 
         //     DB::statement("UPDATE users SET rank_bonus = IFNULL(rank_bonus, 0) + {$roi['amount']} WHERE id = {$user->id}");
         // }
+        // ->where('id', '66')
 
          $users = usersModel::where('level', '>', 0)->get();
 
         foreach ($users as $user) {
 
-
-            $userRank = $user->level;
-            $userPercent = $rankPercentage[$userRank];
+            $userRank    = $user->level;
+            $userPercent = $rankPercentage[$userRank] ?? 0;
 
             $teamRoi = getTeamRoi($user->id);
-
-
             $distributeAmount = 0;
 
             $directs = usersModel::where('sponser_id', $user->id)->get();
 
-            foreach ($directs as $d) {
-            }
-
             foreach ($directs as $direct) {
-
 
                 $legRoi = getTeamRoi($direct->id);
                 $remainingLegRoi = $legRoi;
 
-
                 $deductedTeamIds = [];
-                $directIncluded = false;
 
-                // Check direct himself
+                /** ---------------------------------------------------
+                 * DIRECT LOGIC
+                 * --------------------------------------------------- */
                 if ($direct->level >= $userRank) {
 
                     $directRoi = getTeamRoi($direct->id);
 
+                    // ❌ teamRoi yahan CUT nahi karna
+                    // teamRoi -= directRoi;
 
-                    $teamRoi -= $directRoi;
                     $remainingLegRoi -= $directRoi;
-                    $directIncluded = true;
+                    $deductedTeamIds[] = $direct->id;
 
                 } elseif ($direct->level > 0) {
 
-
                     $directRoi = getTeamRoi($direct->id);
                     $effectiveRoi = min($directRoi, $remainingLegRoi);
-                    $diff = $userPercent - $rankPercentage[$direct->level];
 
+                    $diff = $userPercent - ($rankPercentage[$direct->level] ?? 0);
 
                     if ($diff > 0) {
                         $give = ($effectiveRoi * $diff / 100);
@@ -661,8 +655,9 @@ class scriptController extends Controller
                     $deductedTeamIds[] = $direct->id;
                 }
 
-
-                // Downline ranked members
+                /** ---------------------------------------------------
+                 * DOWNLINE RANKED MEMBERS LOGIC
+                 * --------------------------------------------------- */
                 $rankedMembers = usersModel::join('my_team', 'my_team.team_id', '=', 'users.id')
                     ->where('my_team.user_id', $direct->id)
                     ->where('users.level', '>', 0)
@@ -671,25 +666,23 @@ class scriptController extends Controller
 
                 foreach ($rankedMembers as $rankedUser) {
 
-
-                    if (in_array($rankedUser->sponser_id, $deductedTeamIds)) {
+                    if (in_array($rankedUser->id, $deductedTeamIds)) {
                         continue;
                     }
 
                     $rankedUserRoi = getTeamRoi($rankedUser->id);
-
-
                     $effectiveRoi = min($rankedUserRoi, $remainingLegRoi);
 
                     if ($rankedUser->level >= $userRank) {
 
-                        $teamRoi -= $effectiveRoi;
+                        // ❌ YEH GALAT CUT NAHI KARNA
+                        // teamRoi -= $effectiveRoi;
+
                         $remainingLegRoi -= $effectiveRoi;
 
                     } else {
 
-                        $diff = $userPercent - $rankPercentage[$rankedUser->level];
-
+                        $diff = $userPercent - ($rankPercentage[$rankedUser->level] ?? 0);
 
                         if ($diff > 0) {
                             $give = ($effectiveRoi * $diff / 100);
@@ -699,25 +692,40 @@ class scriptController extends Controller
                         $remainingLegRoi -= $effectiveRoi;
                     }
 
-
                     $deductedTeamIds[] = $rankedUser->id;
                 }
 
+                /** ---------------------------------------------------
+                 * REMAINING LEG ROI → GIVE FULL TO USER
+                 * --------------------------------------------------- */
                 if ($remainingLegRoi > 0) {
                     $give = ($remainingLegRoi * $userPercent / 100);
                     $distributeAmount += $give;
                 }
 
-
+                /** ---------------------------------------------------
+                 * NOW CUT ONLY **ONCE** → ENTIRE LEG ROI
+                 * --------------------------------------------------- */
                 $teamRoi -= $legRoi;
-
+                if ($teamRoi < 0) $teamRoi = 0;
             }
 
+            /** ---------------------------------------------------
+             * RESIDUAL TEAM ROI (GLOBAL LEFTOVER)
+             * --------------------------------------------------- */
             if ($teamRoi > 0) {
                 $give = ($teamRoi * $userPercent / 100);
                 $distributeAmount += $give;
             }
 
+            /** ---------------------------------------------------
+             * FINAL OUTPUT FOR USER
+             * --------------------------------------------------- */
+
+            // first user ke liye detail dekhne ke liye
+
+            echo $distributeAmount . " - " . $user->id;
+            echo "<br>\n";
 
             $roi = [
                 'user_id' => $user->id,

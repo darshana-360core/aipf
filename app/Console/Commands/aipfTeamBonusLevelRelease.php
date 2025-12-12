@@ -24,7 +24,7 @@ class aipfTeamBonusLevelRelease extends Command
         try {
             $appHome = new scriptController;
             $appHome->starBonus();
-            // $svc->distributeBonus();
+           // $svc->distributeBonus();
             $logger->info('distributeBonus() executed successfully.');
 
             $this->info('TeamBonus distribution completed successfully.');
