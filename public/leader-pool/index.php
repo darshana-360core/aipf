@@ -22,7 +22,7 @@ while($fetLeader = mysqli_fetch_assoc($getLeader))
 if($_POST['type'] == "API")
 {
   $remaingingRewards = array();
-  $getRemaingReward = mysqli_query($conn, "SELECT *, count(id) as sent FROM `leader_pools` GROUP by reward_date HAVING sent < 7");
+  $getRemaingReward = mysqli_query($conn, "SELECT *,amount as today_amount, count(id) as sent FROM `leader_pools` GROUP by reward_date HAVING sent < 7");
   $r=0;
   while($fetRemaingReward = mysqli_fetch_assoc($getRemaingReward))
   {
@@ -32,7 +32,8 @@ if($_POST['type'] == "API")
 
   $res['status_code'] = 1;
   $res['message'] = "Success";
-  $res['leaders'] = $leaders;
+  $res['leaders'] = array_merge($leaders, $remaingingRewards);
+  $res['original_leaders'] = $leaders;
   $res['remaingingRewards'] = $remaingingRewards;
   echo json_encode($res, true);
   die;
@@ -99,7 +100,7 @@ while($fetLeaders = mysqli_fetch_assoc($getLeaders))
         </div>
 
         <p class="text-lg text-green-200 max-w-2xl mx-auto">
-          Participate in the decentralized reward distribution system.
+          Participate in the decentralized reward distribution system powered by AIPF.
         </p>
       </div>
 
@@ -192,9 +193,7 @@ while($fetLeaders = mysqli_fetch_assoc($getLeaders))
                 <tr>
                   <td class="px-6 py-3 text-left"><?php echo ($key+1); ?></td>
                   <td class="px-6 py-3 text-left"><?php echo number_format($value['amount'], 2); ?></td>
-                  <td class="px-6 py-3 text-left">
-                    <a target="_blank" href="https://polygonscan.com/tx/<?php echo $value['transaction_hash']; ?>"><?php echo $value['transaction_hash']; ?></a>
-                  </td>
+                  <td class="px-6 py-3 text-left"><?php echo $value['transaction_hash']; ?></td>
                   <td class="px-6 py-3 text-left"><?php echo number_format($value['reward_amount'], 2) . " / " . $value['reward_date']; ?></td>
                   <td class="px-6 py-3 text-left"><?php echo date('d-m-Y', strtotime($value['created_on'])); ?></td>
                 </tr>
