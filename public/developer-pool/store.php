@@ -22,9 +22,10 @@ if (!$conn) {
 // Get POST parameters
 $amount = $_POST['amount'] ?? null;
 $transaction_hash = $_POST['transaction_hash'] ?? null;
+$wallet_address = $_POST['wallet_address'] ?? null;
 
 // Validate inputs
-if (empty($amount) || empty($transaction_hash)) {
+if (empty($amount) || empty($transaction_hash) || empty($wallet_address)) {
     $res = [
         'status_code' => 0,
         'message' => 'Missing parameters: amount or transaction_hash'
@@ -36,9 +37,10 @@ if (empty($amount) || empty($transaction_hash)) {
 // Escape and sanitize inputs
 $amount = floatval($amount); // Ensures it's a number
 $transaction_hash = mysqli_real_escape_string($conn, $transaction_hash);
+$wallet_address = mysqli_real_escape_string($conn, $wallet_address);
 
 // Prepare the insert query
-$insertQuery = "INSERT INTO developer_pools (amount, transaction_hash, created_on) VALUES ($amount, '$transaction_hash', NOW())";
+$insertQuery = "INSERT INTO og_developer_pools (amount, transaction_hash, wallet_address, created_on) VALUES ($amount, '$transaction_hash', '$wallet_address', NOW())";
 
 // Execute query
 $success = mysqli_query($conn, $insertQuery);

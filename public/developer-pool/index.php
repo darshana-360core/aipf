@@ -56,7 +56,7 @@ foreach ($userAddress as $key => $value) {
   $totalReward += $reward;
 }
 
-$getDevEntry = mysqli_query($conn, "SELECT SUM(amount) as amount FROM developer_pools");
+$getDevEntry = mysqli_query($conn, "SELECT SUM(amount) as amount FROM og_developer_pools");
 $fetDevEntry = mysqli_fetch_assoc($getDevEntry);
 
 $totalReward = ($totalReward - $fetDevEntry['amount']);
