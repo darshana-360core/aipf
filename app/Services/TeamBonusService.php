@@ -14,6 +14,7 @@ use function App\Helpers\getTeamRoi;
 use function App\Helpers\updateReverseBusiness;
 use function App\Helpers\updateActiveTeam;
 use function App\Helpers\activeDirect;
+use function App\Helpers\getUserStakedAmount;
 use App\Models\withdrawModel;
 
 // class CitizenAllianceService
@@ -66,7 +67,7 @@ class TeamBonusService
     {
 
         // \Log::info("In checkLevel..."); dd();
-        Log::channel('level_check')->info("In checkLevel...");
+        Log::channel('level_check')->info("==================== start =======================");
 
         $coinPrice = coinPriceLive();
 
@@ -92,13 +93,37 @@ class TeamBonusService
         {
             $userId = $user->id;
 
+            Log::channel('level_check')->info("===========================================");
+            Log::channel('level_check')->info("wallet address...".$user->wallet_address);
+
             $personalHolding = getUserStakeAmount($userId);
 
             $personalHolding *= $coinPrice;
 
-            $validReferrals = activeDirect($userId, 100); //$this->getValidReferrals($userId, $coinPrice);
-	    echo $validReferrals. "validReferrals";
-	    echo $personalHolding. "personalHolding";
+            Log::channel('level_check')->info("self stake...".$personalHolding);
+            $selfBusiness = $this->getTeamBusiness($userId);
+            Log::channel('level_check')->info("Coin Price...".$coinPrice);
+            Log::channel('level_check')->info("self business...".(($selfBusiness['strong'] + $selfBusiness['weak'])));
+            Log::channel('level_check')->info("self business in USDT...".(($selfBusiness['strong'] + $selfBusiness['weak']) * $coinPrice));
+
+            // $validReferrals = activeDirect($userId, 100); //$this->getValidReferrals($userId, $coinPrice);
+
+            $directsActive100 = usersModel::select('users.id')
+                    ->join('user_plans', 'user_plans.user_id', '=', 'users.id')
+                    ->where('users.sponser_id', $userId)
+                    ->groupBy('users.id')
+                    ->get();
+
+            $validReferrals = 0;
+            foreach ($directsActive100 as $direct) {
+                $stake = getUserStakedAmount($direct->id);
+                if ($stake * $coinPrice >= 100) $validReferrals++;
+            }
+
+            Log::channel('level_check')->info("active direct...".$validReferrals);
+           
+            
+           
             // $totalTeamBusiness = $user->my_business ?? 0;
 
             // $totalTeamBusiness = $totalTeamBusiness * $coinPrice;
@@ -106,7 +131,7 @@ class TeamBonusService
             $achievedLevel = 0;
             
             $legs = usersModel::where('sponser_id', $userId)->where('level', 0)->get();
-
+            
             // === LEVEL 15 ===
             if ($this->hasMultipleLegs($legs, 14, 2) && $validReferrals >= 15) 
             {
@@ -411,11 +436,7 @@ class TeamBonusService
                 {
                     $legamount = 20000;
                     $legbusiness = $this->getTeamBusiness($userId);
-			echo $legbusiness['strong'];
-			echo "========";
-			echo $legbusiness['weak'];
-			echo "================";
-			echo $coinPrice;
+                   
                     if($isSplitTeamBusiness)
                     {
                         $legamount = $legamount/2;
@@ -458,9 +479,7 @@ class TeamBonusService
 
             }
 
-            // Update Level
-            // echo PHP_EOL."<br>achievedLevel=".$achievedLevel;
-            Log::channel('level_check')->info("Achieved level...".$userId." -> ".$achievedLevel);
+            Log::channel('level_check')->info("User Level ...".$achievedLevel);
 
             if ($achievedLevel) 
             {
@@ -470,7 +489,9 @@ class TeamBonusService
             {
                 usersModel::where('id', $userId)->update(['level' => 0]);
             }
+            Log::channel('level_check')->info("===========================================");
         }
+        Log::channel('level_check')->info("==================== end =======================");
     }
 
 

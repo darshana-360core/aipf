@@ -140,8 +140,8 @@ return [
         ],
 
         'level_check' => [
-            'driver' => 'single',
-            'path' => storage_path('logs/aipf_teambonus_level_check.log'),
+            'driver' => 'daily',
+            'path' => storage_path('logs/level_check.log'),
             'level' => 'info',
         ],
 

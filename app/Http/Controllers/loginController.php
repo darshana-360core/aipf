@@ -1687,8 +1687,51 @@ class loginController extends Controller
 
         return is_mobile($type, "", $res);
     }
-
     public function getTeamBusiness(Request $request)
+    {
+       $userId = $request->input("user_id");
+
+        $coinPrice = coinPrice();
+
+       $result = usersModel::selectRaw('
+            users.id,
+            IFNULL(SUM(user_plans.amount), 0) as personal_stake,
+            IFNULL(SUM(users.my_business), 0) as my_business,
+            IFNULL(SUM(user_plans.amount), 0) + IFNULL(SUM(users.my_business), 0) as total
+        ')
+        ->leftJoin('user_plans', 'user_plans.user_id', '=', 'users.id')
+        ->whereRaw("user_plans.roi > 0")
+        ->where('users.sponser_id', $userId)
+        ->groupBy('users.id')
+        ->get();
+
+
+        $otherLegs = $result->toArray();
+
+        $strongBusiness = 0;
+        $weakBusiness = 0;
+        if (!empty($otherLegs)) {
+            foreach ($otherLegs as $index => $leg) {
+
+                $claimedRewards = withdrawModel::where('user_id', $leg['id'])
+                    ->where('withdraw_type', 'UNSTAKE')
+                    ->sum('amount');
+
+                $otherLegs[$index]['total'] =
+                    ($leg['total'] - $claimedRewards) * $doraPrice;
+            }
+            usort($otherLegs, fn($a, $b) => $b['total'] <=> $a['total']);
+            $strongBusiness = $otherLegs[0]['total'];
+            for ($i = 1; $i < count($otherLegs); $i++) {
+                $weakBusiness += $otherLegs[$i]['total'];
+            }
+        }
+
+        echo $userId." Strong=".$strongBusiness." Weak=".$weakBusiness.PHP_EOL;
+        return ['strong' => $strongBusiness, 'weak' => $weakBusiness];
+    }
+
+    public function oldgetTeamBusiness(Request $request)
     {
         $userId = $request->input("user_id");
 

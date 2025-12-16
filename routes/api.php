@@ -10,6 +10,7 @@ use App\Http\Controllers\incomeOverviewController;
 use App\Http\Controllers\turbineController;
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\scriptController;
+use App\Services\TeamBonusService;
 
 /*
 |--------------------------------------------------------------------------
@@ -122,7 +123,7 @@ use App\Http\Controllers\scriptController;
 
 
     // To test only remove afterwards
-    // Route::get('/test-checklevel', [loginController::class, 'testLevelBonus']);
+    Route::get('/test-checklevel', [TeamBonusService::class, 'checkLevel']);
     // Route::get('/test-bonus', [loginController::class, 'testBonusDistribution']);
     // Route::get('/test-rankreward', [loginController::class, 'testRankReward']);
     // Route::get('/test-roirelease', [loginController::class, 'testRoiRelease']);
