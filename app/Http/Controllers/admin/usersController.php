@@ -2592,7 +2592,7 @@ class usersController extends Controller
             }, $data);
 
             $list = [
-                ['Wallet Address', 'Amount', 'Withdraw Type', 'Date', 'Status']
+                ['Member Code','Wallet Address', 'Amount', 'Type', 'Date', 'Start Date','End Date']
             ];
             // $filePath = storage_path('app/withdraw_report.csv');
 
@@ -2603,11 +2603,13 @@ class usersController extends Controller
             }
             foreach ($data as $value) {
                 $dataRows = [
+                    $value['refferal_code'],
                     $value['wallet_address'],
                     $value['amount'],
-                    $wihtdraw_Type,
+                    $value['type'],
                     isset($value['dateofearning']) ? date('d-m-Y', strtotime($value['dateofearning'])) : '',
-                    $Type,
+                    isset($value['start_datetime']) ? date('d-m-Y', strtotime($value['start_datetime'])) : '',
+                    isset($value['end_datetime']) ? date('d-m-Y', strtotime($value['end_datetime'])) : '',
 
                 ];
                 fputcsv($fp, $dataRows);
