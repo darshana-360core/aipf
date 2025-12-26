@@ -32,6 +32,7 @@
           {{--  <li> <a href="{{route('orbitx_api_pool')}}" class="waves-effect"><i class="mdi mdi-av-timer fa-fw" data-icon="v"></i> <span class="hide-menu">Verify Pool Report </span></a></li> --}}
             <li> <a href="{{route('investmentReport')}}" class="waves-effect"><i class="mdi mdi-av-timer fa-fw" data-icon="v"></i> <span class="hide-menu">Investment Report </span></a></li>
             <li> <a href="{{route('orbitx_pool_report')}}" class="waves-effect"><i class="mdi mdi-av-timer fa-fw" data-icon="v"></i> <span class="hide-menu">5% Pool Report </span></a></li>
+            <li> <a href="{{route('user_rank_report')}}" class="waves-effect"><i class="mdi mdi-av-timer fa-fw" data-icon="v"></i> <span class="hide-menu">User Rank Report </span></a></li>
            {{-- <li> <a href="{{route('stablebonds_userdetail_report')}}" class="waves-effect"><i class="mdi mdi-av-timer fa-fw" data-icon="v"></i> <span class="hide-menu">Bonanza Form Details Report </span></a></li> --}}
            {{-- <li> <a href="{{route('userdetail_rank_report')}}" class="waves-effect"><i class="mdi mdi-av-timer fa-fw" data-icon="v"></i> <span class="hide-menu">Event Report </span></a></li> --}}
            {{-- <li> <a href="{{route('power_business_report')}}" class="waves-effect"><i class="mdi mdi-av-timer fa-fw" data-icon="v"></i> <span class="hide-menu">Power Business Report </span></a></li> --}}
