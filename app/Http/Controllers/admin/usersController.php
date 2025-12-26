@@ -2545,4 +2545,105 @@ class usersController extends Controller
         $res['level'] = $level;
         return is_mobile($type, "user_rank_report", $res, 'view');
     }
+
+    function roiReleaseReport(Request $request){
+        $type = $request->input('type');
+        $start_date = $request->input('start_date');
+        $end_date = $request->input('end_date');
+        $refferal_code = $request->input('refferal_code');
+        $wtype = $request->input('wtype');
+        $isExport = $request->input('export') === 'yes';
+
+        $whereStartDate = '';
+        $whereEndDate = '';
+        $whereRC = '';
+        $wherewith_type = '';
+
+        if ($start_date != '') {
+            $whereStartDate = " AND date_format(roi_release_history.created_on, '%Y-%m-%d') >= '" . date('Y-m-d', strtotime($start_date)) . "'";
+        }
+
+        if ($end_date != '') {
+            $whereEndDate = " AND date_format(roi_release_history.created_on, '%Y-%m-%d') <= '" . date('Y-m-d', strtotime($end_date)) . "'";
+        }
+        if ($wtype != '') {
+            $wherewith_type = " AND roi_release_history.type = '" . $wtype . "' ";
+        }
+
+        if ($refferal_code != '') {
+            $whereRC = "  AND roi_release_history.wallet_address = '" . $refferal_code . "' ";
+        }
+        $query = "SELECT users.*, 
+        roi_release_history.amount, 
+        roi_release_history.created_on AS dateofearning, 
+        roi_release_history.type, 
+        roi_release_history.transaction_hash, 
+        roi_release_history.start_datetime, 
+        roi_release_history.end_datetime
+        FROM roi_release_history
+        JOIN users ON users.wallet_address = roi_release_history.wallet_address
+        WHERE 1 = 1 " . $whereStartDate . $whereEndDate . $whereRC. $wherewith_type;
+
+
+        if ($isExport) {
+            $data = DB::select($query);
+            $data = array_map(function ($value) {
+                return (array) $value;
+            }, $data);
+
+            $list = [
+                ['Wallet Address', 'Amount', 'Withdraw Type', 'Date', 'Status']
+            ];
+            // $filePath = storage_path('app/withdraw_report.csv');
+
+            $filePath = '/var/www/html/exports/withdraw_reports.csv';
+            $fp = fopen($filePath, 'w');
+            foreach ($list as $fields) {
+                fputcsv($fp, $fields);
+            }
+            foreach ($data as $value) {
+                $dataRows = [
+                    $value['wallet_address'],
+                    $value['amount'],
+                    $wihtdraw_Type,
+                    isset($value['dateofearning']) ? date('d-m-Y', strtotime($value['dateofearning'])) : '',
+                    $Type,
+
+                ];
+                fputcsv($fp, $dataRows);
+            }
+
+            fclose($fp);
+            return response()->download($filePath)->deleteFileAfterSend(true);
+        }
+
+
+        $data = roiReleaseVestingModel::selectRaw("users.*,roi_release_history.amount,roi_release_history.type,roi_release_history.transaction_hash,roi_release_history.created_on as dateofearning,roi_release_history.start_datetime,roi_release_history.end_datetime")->join('users', 'users.wallet_address', '=', 'roi_release_history.wallet_address')->whereRaw("1 = 1  " . $whereStartDate . $whereEndDate . $whereRC .$wherewith_type)->orderBy('id','Desc')->paginate(20)->toArray();
+
+        $todaySum = roiReleaseVestingModel::whereDate('created_on', Carbon::today())->sum('amount');
+
+        $weekSum = roiReleaseVestingModel::whereBetween('created_on', [
+            Carbon::now()->startOfWeek(), 
+            Carbon::now()->endOfWeek()
+        ])->sum('amount');
+
+        $monthSum = roiReleaseVestingModel::whereMonth('created_on', Carbon::now()->month)
+                                ->whereYear('created_on', Carbon::now()->year)
+                                ->sum('amount');
+        $yesterdaySum = roiReleaseVestingModel::whereDate('created_on', Carbon::yesterday())->sum('amount');
+
+        $res['status_code'] = 1;
+        $res['message'] = "Report generated successfully";
+        $res['data'] = $data;
+        $res['start_date'] = $start_date;
+        $res['end_date'] = $end_date;
+        $res['refferal_code'] = $refferal_code;
+        $res['wtype'] = $wtype;
+        $res['todaySum'] = $todaySum;
+        $res['weekSum'] = $weekSum;
+        $res['monthSum'] = $monthSum;
+        $res['yesterdaySum'] = $yesterdaySum;
+        return is_mobile($type, "roi_release_report", $res, 'view');
+    }
+
 }

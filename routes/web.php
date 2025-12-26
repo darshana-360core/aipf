@@ -160,6 +160,7 @@ Route::any('1c4b4f09/search-member', [BackendpackageController::class, 'searchMe
 // Route::any('1c4b4f09/members-report', [BackendusersController::class, 'membersReport'])->name('membersReport')->middleware('adminsession');
 Route::any('1c4b4f09/investment-process-report', [BackendusersController::class, 'investmentReportt'])->name('investmentReport')->middleware('adminsession');
 Route::any('1c4b4f09/withdraw-process-report', [BackendusersController::class, 'withdrawReport'])->name('withdrawReport')->middleware('adminsession');
+Route::any('1c4b4f09/roi-release-report', [BackendusersController::class, 'roiReleaseReport'])->name('roiReleaseReport')->middleware('adminsession');
 Route::any('1c4b4f09/turbine-process-report', [BackendusersController::class, 'turbineReport'])->name('turbineReport')->middleware('adminsession');
 Route::any('1c4b4f09/release-process-report', [BackendusersController::class, 'releaseReport'])->name('releaseReport')->middleware('adminsession');
 Route::any('1c4b4f09/user-rank-report-process', [BackendusersController::class, 'userRankReport'])->name('userRankReport')->middleware('adminsession');
