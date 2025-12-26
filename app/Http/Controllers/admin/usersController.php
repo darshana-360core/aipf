@@ -2468,8 +2468,8 @@ class usersController extends Controller
         FROM users
         INNER JOIN earning_logs
         ON users.id = earning_logs.user_id
-        WHERE earning_logs.tag = 'DIFF-TEAM-BONUS'
-        WHERE 1 = 1 " . $whereRC. $whereLevel.
+        WHERE earning_logs.tag = 'DIFF-TEAM-BONUS' AND
+        1 = 1 " . $whereRC. $whereLevel.
         "GROUP BY users.id,users.refferal_code,users.wallet_address,users.level
         ORDER BY users.id DESC";
 
