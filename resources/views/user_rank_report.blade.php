@@ -6,7 +6,7 @@
     <div class="container-fluid">
         <div class="row bg-title">
             <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                <h4 class="page-title">Withdraw Report</h4>
+                <h4 class="page-title">User Rank Report</h4>
             </div>
         </div>
         <div class="row">
@@ -16,7 +16,7 @@
                         <!-- Nav tabs -->
                         <ul class="nav nav-tabs member-tab" role="tablist">
                             <li role="presentation" class="active"><a href="#all_members" aria-controls="all_members"
-                                    role="tab" data-toggle="tab">Withdraw Report</a></li>
+                                    role="tab" data-toggle="tab">User Rank Report</a></li>
                         </ul>
 
                         <!-- Tab panes -->
