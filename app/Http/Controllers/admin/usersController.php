@@ -2618,7 +2618,7 @@ class usersController extends Controller
         }
 
 
-        $data = roiReleaseVestingModel::selectRaw("users.*,roi_release_history.amount,roi_release_history.type,roi_release_history.transaction_hash,roi_release_history.created_on as dateofearning,roi_release_history.start_datetime,roi_release_history.end_datetime")->join('users', 'users.wallet_address', '=', 'roi_release_history.wallet_address')->whereRaw("1 = 1  " . $whereStartDate . $whereEndDate . $whereRC .$wherewith_type)->orderBy('id','Desc')->paginate(20)->toArray();
+        $data = roiReleaseVestingModel::select(['users.*','roi_release_history.amount','roi_release_history.type','roi_release_history.transaction_hash','roi_release_history.created_on as dateofearning','roi_release_history.start_datetime','roi_release_history.end_datetime'])->join('users', 'users.wallet_address', '=', 'roi_release_history.wallet_address')->whereRaw("1 = 1  " . $whereStartDate . $whereEndDate . $whereRC .$wherewith_type)->orderBy('roi_release_history.id','Desc')->paginate(20)->toArray();
 
         $todaySum = roiReleaseVestingModel::whereDate('created_on', Carbon::today())->sum('amount');
 
