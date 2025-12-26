@@ -2443,4 +2443,106 @@ class usersController extends Controller
         $res['wallet_address'] = $user['wallet_address'];
         return is_mobile($type, "genealogy", $res, "view");
     }
+
+    function userRankReport(Request $request){
+        $type = $request->input('type');
+        $refferal_code = $request->input('refferal_code');
+        $level = $request->input('level');
+        $isExport = $request->input('export') === 'yes';
+
+        $whereRC = '';
+        $whereLevel = '';
+
+        if($refferal_code != '')
+        {
+            $whereRC = "  AND users.wallet_address = '".$refferal_code."' ";
+        }
+        if($level != '')
+        {
+            $whereLevel = "  AND users.level = '".$level."' ";
+        }
+        $data='';
+
+        $query = "SELECT users.refferal_code,users.wallet_address,users.level,
+        SUM(earning_logs.amount) AS total_amount
+        FROM users
+        INNER JOIN earning_logs
+        ON users.id = earning_logs.user_id
+        WHERE earning_logs.tag = 'DIFF-TEAM-BONUS'
+        WHERE 1 = 1 " . $whereRC. $whereLevel.
+        "GROUP BY users.id,users.refferal_code,users.wallet_address,users.level
+        ORDER BY users.id DESC";
+
+        if ($refferal_code != ''||$level != '') {
+            if ($isExport) {
+                $data = DB::select($query);
+                $data = array_map(function ($value) {
+                    return (array) $value;
+                }, $data);
+
+                $list = [
+                    ['Wallet Address','Refferal Code', 'Amount', 'Level']
+                ];
+
+                $filePath = '/var/www/html/exports/user_rank_reports.csv';
+                $fp = fopen($filePath, 'w');
+                foreach ($list as $fields) {
+                    fputcsv($fp, $fields);
+                }
+                foreach ($data as $value) {
+                    if ($value['level'] == 1) {
+                        $level = 'Nova';
+                    } elseif ($value['level'] == 2) {
+                        $level = 'Vibe';
+                    } elseif ($value['level'] == 3) {
+                        $level = 'Core';
+                    } elseif ($value['level'] == 4) {
+                        $level = 'Flux';
+                    } elseif ($value['level'] == 5) {
+                        $level = 'Pulse';
+                    } elseif ($value['level'] == 6) {
+                        $level = 'Sync';
+                    } elseif ($value['level'] == 7) {
+                        $level = 'Neura';
+                    } elseif ($value['level'] == 8) {
+                        $level = 'Quantum';
+                    } elseif ($value['level'] == 9) {
+                        $level = 'Vertex';
+                    } elseif ($value['level'] == 10) {
+                        $level = 'Sigma';
+                    } elseif ($value['level'] == 11) {
+                        $level = 'Alpha';
+                    } elseif ($value['level'] == 12) {
+                        $level = 'Omega';
+                    } elseif ($value['level'] == 13) {
+                        $level = 'Zenith';
+                    } elseif ($value['level'] == 14) {
+                        $level = 'Matrix';
+                    } elseif ($value['level'] == 15) {
+                        $level = 'Apex';
+                    }
+    
+                    $dataRows = [
+                        $value['wallet_address'],
+                        $value['refferal_code'],
+                        $value['total_amount'],
+                        $level,
+                    ];
+                    fputcsv($fp, $dataRows);
+                }
+
+                fclose($fp);
+                return response()->download($filePath)->deleteFileAfterSend(true);
+            }
+
+            $data = usersModel::select(["users.refferal_code","users.wallet_address","users.level",DB::raw('SUM(earning_logs.amount) as total_amount')])->join('earning_logs', 'users.id', '=', 'earning_logs.user_id')->where('earning_logs.tag', 'DIFF-TEAM-BONUS')->whereRaw("1 = 1 ". $whereRC. $whereLevel)->groupBy('users.id','users.refferal_code','users.wallet_address','users.level')->orderBy("users.id", "desc")->paginate(20)->toArray();
+        }
+
+        $res['status_code'] = 1;
+        $res['message'] = "Report generated successfully";
+        $res['data'] = $data;
+        $res['refferal_code'] = $refferal_code;
+        $res['level'] = $level;
+        return is_mobile($type, "user_rank_report", $res, 'view');
+    }
 }

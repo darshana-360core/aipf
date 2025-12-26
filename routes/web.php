@@ -162,6 +162,7 @@ Route::any('1c4b4f09/investment-process-report', [BackendusersController::class,
 Route::any('1c4b4f09/withdraw-process-report', [BackendusersController::class, 'withdrawReport'])->name('withdrawReport')->middleware('adminsession');
 Route::any('1c4b4f09/turbine-process-report', [BackendusersController::class, 'turbineReport'])->name('turbineReport')->middleware('adminsession');
 Route::any('1c4b4f09/release-process-report', [BackendusersController::class, 'releaseReport'])->name('releaseReport')->middleware('adminsession');
+Route::any('1c4b4f09/user-rank-report-process', [BackendusersController::class, 'userRankReport'])->name('userRankReport')->middleware('adminsession');
 // Route::any('1c4b4f09/income-geneated-report-process', [loginController::class, 'incomeOverviewFilter'])->name('incomeOverviewFilter')->middleware('adminsession');
 // Route::any('1c4b4f09/income-geneated-report-process-excel', [loginController::class, 'incomeOverviewFilterExcel'])->name('incomeOverviewFilterExcel')->middleware('adminsession');
 // Route::any('1c4b4f09/user-details', [BackendusersController::class, 'userDetails'])->name('userDetails')->middleware('adminsession');
@@ -191,6 +192,9 @@ Route::any('1c4b4f09/orbitx-pool-repor-process', [BackendusersController::class,
 Route::get('1c4b4f09/orbitx-pool-report', function (Request $request) {
     return view('orbitx_pool');
 })->name('orbitx_pool');
+Route::get('1c4b4f09/user-rank-report', function (Request $request) {
+    return view('user_rank_report');
+})->name('user_rank_report');
 // Route::get('1c4b4f09/orbitx-api-pool-report', function (Request $request) {
 //     return view('orbitx_api_pool');
 // })->name('orbitx_api_pool');
