@@ -2596,7 +2596,7 @@ class usersController extends Controller
             ];
             // $filePath = storage_path('app/withdraw_report.csv');
 
-            $filePath = '/var/www/html/exports/withdraw_reports.csv';
+            $filePath = '/var/www/html/exports/roi_release.csv';
             $fp = fopen($filePath, 'w');
             foreach ($list as $fields) {
                 fputcsv($fp, $fields);
